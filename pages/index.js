@@ -1,40 +1,49 @@
-import styled from 'styled-components';
-import db from "../db.json";
-import Widget from "../src/components/Widget";
-import Footer from "../src/components/Footer";
-import GitHubCorner from "../src/components/GitHubCorner";
-import QuizBackground from "../src/components/QuizBackground";
+import React from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-
-
-// const BackgroundImage = styled.div`
-//   flex: 1;
-//   background-position: center;
-//   background-size: cover;
-//   background-image: url(${db.bg});
-// `;
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+import db from '../db.json';
+import Widget from '../src/components/Widget';
+import QuizLogo from '../src/components/QuizLogo';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
+import QuizContainer from '../src/components/QuizContainer';
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>Quiz Prof.Suellen</title>
+      </Head>
       <QuizContainer>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
             <h1>Professora Suellen</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>lorem ipson...</p>
+            <form onSubmit={function (event) {
+              event.preventDefault();
+              router.push(`/quiz?name=${name}`);
+            // router manda para a próxima página
+            }}
+            >
+              <Input
+                name="NomeDoUsuario"
+                onChange={(event) => setName(event.target.value)}
+                placeholder="Diz aí seu nome"
+                value={name}
+              />
+              <Button type="submit" disabled={name.length === 0}>
+                {` Jogar ${name}`}
+              </Button>
+            </form>
           </Widget.Content>
         </Widget>
         <Widget>
@@ -43,9 +52,9 @@ export default function Home() {
             <p>lorem ipson dolor sit amet...</p>
           </Widget.Content>
         </Widget>
-        <Footer/>
+        <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/romulopalaoro"/>
+      <GitHubCorner projectUrl="https://github.com/romulopalaoro" />
     </QuizBackground>
-  )
+  );
 }
