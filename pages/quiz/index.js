@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import BarLoader from 'react-spinners/BarLoader';
+import BeatLoader from 'react-spinners/BeatLoader';
 import { motion } from 'framer-motion';
 
 import { func } from 'prop-types';
@@ -83,7 +83,7 @@ function LoadingWidget() {
   return (
     <Widget>
       <Widget.Header height="200px">
-        <BarLoader color="lightblue" height="20" width="350px" />
+        <BeatLoader color="yellow" size="25px" />
       </Widget.Header>
     </Widget>
   );
