@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 // src/components/Footer/index.js
 const FooterWrapper = styled.footer`
-  background-color: #080EA6;
-  opacity: 70%;
+  background: ${({ theme }) => theme.colors.footer};
   padding: 20px;
   display: flex;
   align-items: center;
   border-radius: 4px; 
+  opacity: .4;
   img {
     width: 58px;
     margin-right: 23px;

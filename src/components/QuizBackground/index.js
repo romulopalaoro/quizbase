@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const QuizBackground = styled.div`
   background-size: cover;
   background-image: url(${({ backgroundImage }) => backgroundImage});
-  background-color: ${({ theme }) => theme.colors.secondary};
   flex: 1;
+  
   @media screen and (max-width: 500px) {
     background-image: none;
     &:after {
