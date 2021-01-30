@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import BeatLoader from 'react-spinners/BeatLoader';
-import { css } from '@emotion/core';
-import ClipLoader from 'react-spinners/ClipLoader';
 // import db from '../../../dbMath.json';
 import Widget from '../../components/Widget';
 import QuizLogo from '../../components/QuizLogo';
