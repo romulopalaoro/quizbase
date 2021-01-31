@@ -11,7 +11,8 @@
 
 - [Paulo Silveira](https://github.com/peas/)
 
-![](demonstração.jpg)
+![](demonstração.JPG)
+
 ### Instalando o projeto
 
 - No CMD ou no terminal do VSCode
